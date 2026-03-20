@@ -7,6 +7,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private Rigidbody poweredTire2;
     [SerializeField] private Rigidbody turningTire1;
     [SerializeField] private Rigidbody turningTire2;
+    [SerializeField] private float speed;
     private Rigidbody rb;
 
     private float _acceleration;
@@ -14,6 +15,7 @@ public class CarMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Time.timeScale = 0.5f;
     }
 
     void OnMove(InputValue value)
@@ -24,9 +26,9 @@ public class CarMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        poweredTire1.angularVelocity += new Vector3( _acceleration, 0f, 0f);
-        poweredTire2.angularVelocity += new Vector3(_acceleration, 0f, 0f);
-        poweredTire1.rotation = Quaternion.Euler(poweredTire1.rotation.x, rb.rotation.y, rb.rotation.z + 90).normalized;
-        poweredTire2.rotation = Quaternion.Euler(poweredTire2.rotation.x, rb.rotation.y, rb.rotation.z + 90).normalized;
+        poweredTire1.angularVelocity += (speed * _acceleration) * gameObject.transform.right;
+        poweredTire2.angularVelocity += (speed * _acceleration) * gameObject.transform.right;
+        //poweredTire1.rotation = Quaternion.Euler(poweredTire1.rotation.x, transform.rotation.y, transform.rotation.z + 90);
+        //poweredTire2.rotation = Quaternion.Euler(poweredTire2.rotation.x, transform.rotation.y, transform.rotation.z + 90);
     }
 }
