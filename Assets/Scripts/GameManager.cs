@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int Score = 0;
+    private int _score = 0;
+    private GameStates _currentGameState;
+    private float _startTime;
     void Start()
     {
-        Score = 0;
+        _score = 0;
+        _currentGameState = GameStates.PLAY;
+        _startTime = Time.time;
     }
 
     void Update()
@@ -15,7 +19,17 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(int ScoreChanged)
     {
-        Score += ScoreChanged;
-        Debug.Log(Score);
+        _score += ScoreChanged;
+        Debug.Log(_score);
     }
+    public void UpdateGameState(GameStates UpdateTo)
+    {
+        _currentGameState = UpdateTo;
+    }
+    public GameStates GetGameState()
+    {
+        return _currentGameState;
+    }
+    public int GetScore() { return _score; }
+    public float GetTime() { return Time.time - _startTime; }
 }
