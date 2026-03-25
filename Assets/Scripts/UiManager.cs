@@ -47,6 +47,7 @@ public class UiManager : MonoBehaviour
         if (timeText == null) return;
         scoreText.SetText(Score.ToString());
         timeText.SetText(Time.ToString());
+        pauseCanvas.SetActive(false);
         endCanvas.SetActive(true);
     }
     // a function to return to the start menu from the pause menu or score menu
