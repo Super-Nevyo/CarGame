@@ -41,10 +41,10 @@ public class Suspension : MonoBehaviour
         }
         else {Debug.LogError("Suspension only supports attaching together");
         }
+        // if the distance is too big it is clamped to not have too aggressive bouncing
         _moveDirection = Vector3.ClampMagnitude(_moveDirection, 0.5f);
         rb.linearVelocity += new Vector3(Mathf.Pow(_moveDirection.x,3) * xSuspensionStrength, Mathf.Pow(_moveDirection.y,3) * ySuspensionStrength,
             Mathf.Pow(_moveDirection.z,3) * zSuspensionStrength);
-        
-        
     }
+    // TODO write a damping script
 }

@@ -24,6 +24,7 @@ public class Cannon : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(Target.position - transform.position);
     }
+    // this is pretty much the same as what we learned in class with the arrow but with a different projectile
     private void Shoot()
     {
         _bomb = Instantiate(projectile, transform.position, transform.rotation);

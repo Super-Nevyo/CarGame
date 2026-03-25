@@ -12,24 +12,23 @@ public class GameManager : MonoBehaviour
         _startTime = Time.time;
     }
 
-    void Update()
-    {
-        
-    }
-
+// a function so score objects can update the score by running this script
     public void UpdateScore(int ScoreChanged)
     {
         _score += ScoreChanged;
         Debug.Log(_score);
     }
+    // a function to let other scripts update the game state, used by the ui manager for pausing game and the finish line for winning
     public void UpdateGameState(GameStates UpdateTo)
     {
         _currentGameState = UpdateTo;
     }
+    // used by the ui manager to tell if the game should be paused or unpaused
     public GameStates GetGameState()
     {
         return _currentGameState;
     }
+    // both of these are used by the UI manager to show the score when the finish line tells it to
     public int GetScore() { return _score; }
     public float GetTime() { return Time.time - _startTime; }
 }

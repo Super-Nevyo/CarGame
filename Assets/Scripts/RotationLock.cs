@@ -28,9 +28,8 @@ public class RotationLock : MonoBehaviour
 
     void FixedUpdate()
     {
-
         var delta = attachTo.rotation * Quaternion.Inverse(rb.rotation);
-
+        
         float angle; Vector3 axis;
         delta.ToAngleAxis(out angle, out axis);
 
@@ -46,8 +45,12 @@ public class RotationLock : MonoBehaviour
         Vector3 angular = (SuspensionStrength * Mathf.Deg2Rad * angle) * axis.normalized;
         
         rb.angularVelocity += angular;
+        
+        
+        // TODO write a damping scriptS
+        // TODO add something for rotating to a position based on several forces instead of one point to make the car rotation based on the tires too
 
-
+S
         ///
         /// I tried to do it myself, i could not do it myself
         /// Thank you internet stranger for showing me how to actually do things
