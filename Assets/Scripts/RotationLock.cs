@@ -50,7 +50,7 @@ public class RotationLock : MonoBehaviour
         // TODO write a damping scriptS
         // TODO add something for rotating to a position based on several forces instead of one point to make the car rotation based on the tires too
 
-S
+
         ///
         /// I tried to do it myself, i could not do it myself
         /// Thank you internet stranger for showing me how to actually do things
