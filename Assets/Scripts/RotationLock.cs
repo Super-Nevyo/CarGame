@@ -1,7 +1,4 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.tvOS;
 
 public class RotationLock : MonoBehaviour
 {

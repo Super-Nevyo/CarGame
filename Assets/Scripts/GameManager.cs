@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
         _currentGameState = GameStates.PLAY;
         _startTime = Time.time;
+        Time.timeScale = 1f;
     }
 
 // a function so score objects can update the score by running this script
