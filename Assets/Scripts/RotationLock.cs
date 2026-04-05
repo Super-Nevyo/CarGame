@@ -5,23 +5,10 @@ public class RotationLock : MonoBehaviour
     [SerializeField] private Transform attachTo;
     [SerializeField] private float SuspensionStrength;
     private Rigidbody rb;
-
-
-    // All the Variables i thought i needed
-    //[SerializeField] private float slerpSpeed;
-    //[SerializeField] private Transform attachFrom;
-    //[SerializeField] private float smooth;
-    //[SerializeField] private float rotationSpeedChangeMax;
-    //[SerializeField] private CarMovement Car;
-    //private Vector3 _moveDirection;
-    //private int _flips;
-    //private Quaternion _rotation;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
 
     void FixedUpdate()
     {
@@ -55,74 +42,6 @@ public class RotationLock : MonoBehaviour
         ///
 
 
-        //_moveDirection = Vector3.zero;
-        //_flips = 0;
-        //_moveDirection.x += WhichAngleIsCloser(attachTo.eulerAngles.x, gameObject.transform.eulerAngles.x);
-        //_moveDirection.y += WhichAngleIsCloser(attachTo.eulerAngles.y, gameObject.transform.eulerAngles.y);
-        //_moveDirection.z += WhichAngleIsCloser(attachTo.eulerAngles.z, gameObject.transform.eulerAngles.z);
-        ////if(_flips != 0)
-        ////{
-        ////    _moveDirection = Vector3.zero;
-        ////    _flips = 0;
-        ////    Quaternion New = Quaternion.Inverse(attachTo.rotation);
-        ////    _moveDirection.x += WhichAngleIsCloser(New.eulerAngles.x, gameObject.transform.eulerAngles.x);
-        ////    _moveDirection.y += WhichAngleIsCloser(New.eulerAngles.y, gameObject.transform.eulerAngles.y);
-        ////    _moveDirection.z += WhichAngleIsCloser(New.eulerAngles.z, gameObject.transform.eulerAngles.z);
-        ////}
-
-
-        //if (logging) Debug.Log(_moveDirection);
-        //if (_moveDirection.magnitude < rotationSpeedChangeMax)
-        //{
-        //    if (_flips == 0)
-        //    {
-        //        rb.angularVelocity += new Vector3(xSuspensionStrength * Mathf.Pow(_moveDirection.x / smooth, 3),
-        //            ySuspensionStrength * Mathf.Pow(_moveDirection.y / smooth, 3),
-        //            zSuspensionStrength * Mathf.Pow(_moveDirection.z / smooth, 3));
-        //    }
-        //    else
-        //    {
-        //        rb.angularVelocity += new Vector3(-xSuspensionStrength * Mathf.Pow(_moveDirection.x / smooth, 3),
-        //            ySuspensionStrength * Mathf.Pow(_moveDirection.y / smooth, 3),
-        //            zSuspensionStrength * Mathf.Pow(_moveDirection.z / smooth, 3));
-        //    }
-        //    //if (logging)Debug.Log(rb.angularVelocity);
-        //}
-        //else { rb.rotation = Quaternion.Slerp(rb.rotation, attachTo.rotation, 1f); if (logging) Debug.Log("slerping");}
     }
-    //private float WhichAngleIsCloser(float angleTo, float angleFrom)
-    //{
-
-    //    //return angleTo - angleFrom;
-    //    float angleToHigh = angleTo + 360;
-    //    float angleToLow = angleTo - 360;
-    //    if (angleFrom - angleTo < -180)
-    //    {
-    //        while ((angleToLow - angleFrom) < -80) {angleFrom -= 90; _flips++; }
-    //        while ((angleToLow - angleFrom) > 80) {angleFrom += 90; _flips++; }
-    //        return angleToLow - angleFrom;
-
-    //    }
-
-    //    if (angleFrom - angleTo > 180)
-    //    {
-    //        while ((angleToHigh - angleFrom) < -80) {angleFrom -= 90; _flips++; }
-    //        while ((angleToHigh - angleFrom) > 80) {angleFrom += 90; _flips++; }
-    //        return angleToHigh - angleFrom;
-            
-    //    }
-    //    else
-    //    {
-    //        while ((angleTo - angleFrom) < -80) {angleFrom -= 90; _flips++; }
-    //        while ((angleTo - angleFrom) > 80) {angleFrom += 90; _flips++; }
-    //        return (angleTo - angleFrom);
-    //    }
-
-    //}
-
-
-    //private Vector3 WhereShouldIGo(Quaternion To, Quaternion From)
-    //{
-       
-    //}
+    
 }

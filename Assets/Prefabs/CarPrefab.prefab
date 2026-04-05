@@ -229,7 +229,7 @@ Rigidbody:
   m_GameObject: {fileID: 2033385886338538590}
   serializedVersion: 5
   m_Mass: 2
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -265,6 +265,7 @@ MonoBehaviour:
   xSuspensionStrength: 9
   ySuspensionStrength: 9
   zSuspensionStrength: 9
+  dampingStrength: 90
 --- !u!65 &4516478282883181734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ Rigidbody:
   m_GameObject: {fileID: 2616722889855829255}
   serializedVersion: 5
   m_Mass: 2
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -483,6 +484,7 @@ MonoBehaviour:
   xSuspensionStrength: 9
   ySuspensionStrength: 9
   zSuspensionStrength: 9
+  dampingStrength: 90
 --- !u!65 &3840277265140481479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -696,7 +698,7 @@ Rigidbody:
   m_GameObject: {fileID: 3280798598139778345}
   serializedVersion: 5
   m_Mass: 2
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -732,6 +734,7 @@ MonoBehaviour:
   xSuspensionStrength: 9
   ySuspensionStrength: 9
   zSuspensionStrength: 9
+  dampingStrength: 90
 --- !u!65 &5246709315371625229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1029,7 +1032,7 @@ GameObject:
   - component: {fileID: 7138163259337072844}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1172,7 +1175,7 @@ Rigidbody:
   m_GameObject: {fileID: 5094923811022121605}
   serializedVersion: 5
   m_Mass: 10
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1240,6 +1243,7 @@ MonoBehaviour:
   xSuspensionStrength: 10
   ySuspensionStrength: 10
   zSuspensionStrength: 10
+  dampingStrength: 90
 --- !u!1 &5211820894605518147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,9 +1349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   Target: {fileID: 2162674179858678154}
-  car: {fileID: 1924977656402695210}
+  Car: {fileID: 1924977656402695210}
+  ShootSpeed: 500
+  ShootSpeedChange: 30
   projectile: {fileID: 8530328477925977194, guid: 7ebed0cf68eba9447b5c88893b064e7e, type: 3}
-  shootSpeed: 500
 --- !u!1 &6203692688971683989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8669040799394539654}
+  - component: {fileID: 6990160076532824200}
   m_Layer: 0
   m_Name: CarPrefab
   m_TagString: Untagged
@@ -1384,6 +1390,26 @@ Transform:
   - {fileID: 3442994723257790579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6990160076532824200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6203692688971683989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6762713656166921914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1548,7 @@ Rigidbody:
   m_GameObject: {fileID: 8579457596062007685}
   serializedVersion: 5
   m_Mass: 2
-  m_LinearDamping: 1
+  m_LinearDamping: 0
   m_AngularDamping: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1558,6 +1584,7 @@ MonoBehaviour:
   xSuspensionStrength: 9
   ySuspensionStrength: 9
   zSuspensionStrength: 9
+  dampingStrength: 90
 --- !u!65 &7441918610955762465
 BoxCollider:
   m_ObjectHideFlags: 0

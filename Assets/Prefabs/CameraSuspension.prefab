@@ -181,7 +181,7 @@ Rigidbody:
   m_GameObject: {fileID: 845643141046614223}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 10
+  m_LinearDamping: 5
   m_AngularDamping: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -217,6 +217,7 @@ MonoBehaviour:
   xSuspensionStrength: 20
   ySuspensionStrength: 20
   zSuspensionStrength: 40
+  dampingStrength: 100
 --- !u!114 &4991065121519590881
 MonoBehaviour:
   m_ObjectHideFlags: 0

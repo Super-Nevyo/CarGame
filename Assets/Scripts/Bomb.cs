@@ -3,26 +3,21 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private ParticleSystem playExplosion;
+    [SerializeField] private ParticleSystem playFuseFlame;
     [SerializeField] float circleCastSize = 2;
     [SerializeField] float bombStrength = 200;
+    [SerializeField] AudioClip explosionSound;
+
     private RaycastHit[] _raycastHits;
 
-    private Rigidbody rb;
     private IBombable bombed;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        Invoke(nameof(BlowUp), 2);
-    }
+    private bool _fuseLit = false;
 
-    void Update()
-    {
-        
-    }
-
+    // does a sphere cast, triggers on bombed of i bombables and sends all rigid bodys away
     void BlowUp()
     {
         playExplosion.Play();
+        AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         _raycastHits = Physics.SphereCastAll(transform.position,
             circleCastSize,
             Vector3.up,
@@ -41,5 +36,13 @@ public class Bomb : MonoBehaviour
             
         }
         Destroy(gameObject, 0.2f);
+    }
+    // checks if bomb is already going off, if it isnt: turn on the particles for the lit fuse and bluws up the bomb some time after
+    public void BlowUpAfter(float time)
+    {
+        if (_fuseLit) return;
+        _fuseLit = true;
+        playFuseFlame.Play();
+        Invoke(nameof(BlowUp), time);
     }
 }

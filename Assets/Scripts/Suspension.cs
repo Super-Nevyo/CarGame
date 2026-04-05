@@ -7,10 +7,10 @@ public class Suspension : MonoBehaviour
     [SerializeField] private float xSuspensionStrength;
     [SerializeField] private float ySuspensionStrength;
     [SerializeField] private float zSuspensionStrength;
+    [SerializeField] private float dampingStrength;
 
     private Rigidbody rb;
     private Vector3 _moveDirection;
-    private Quaternion _rotation;
     
     void Start()
     {
@@ -45,6 +45,15 @@ public class Suspension : MonoBehaviour
         _moveDirection = Vector3.ClampMagnitude(_moveDirection, 0.5f);
         rb.linearVelocity += new Vector3(Mathf.Pow(_moveDirection.x,3) * xSuspensionStrength, Mathf.Pow(_moveDirection.y,3) * ySuspensionStrength,
             Mathf.Pow(_moveDirection.z,3) * zSuspensionStrength);
+        // reduces linear velocity by the amount damped
+        foreach(Transform attach in attachTo)
+        {
+            rb.linearVelocity -= CalculateDamping(attach.GetComponentInParent<Rigidbody>().linearVelocity, rb.linearVelocity);
+        }
     }
-    // TODO write a damping script
+    // Calculates the linear damping based on the linear velocity of two Tigidbodys
+    private Vector3 CalculateDamping(Vector3 LVFrom, Vector3 LVTo)
+    {
+        return (-LVFrom + LVTo) / dampingStrength;
+    }
 }

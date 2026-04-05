@@ -5,12 +5,13 @@ public class GameManager : MonoBehaviour
     private int _score = 0;
     private GameStates _currentGameState;
     private float _startTime;
-    void Start()
+    public static GameManager instance;
+    void Awake()
     {
+        if (instance == null) instance = this;
         _score = 0;
-        _currentGameState = GameStates.PLAY;
+        UpdateGameState(GameStates.PLAY);
         _startTime = Time.time;
-        Time.timeScale = 1f;
     }
 
 // a function so score objects can update the score by running this script
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     public void UpdateGameState(GameStates UpdateTo)
     {
         _currentGameState = UpdateTo;
+        if (_currentGameState == GameStates.PLAY) Time.timeScale = 1f;
+        if (_currentGameState == GameStates.PAUSE) Time.timeScale = 0f;
     }
     // used by the ui manager to tell if the game should be paused or unpaused
     public GameStates GetGameState()

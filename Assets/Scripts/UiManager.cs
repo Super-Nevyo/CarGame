@@ -4,15 +4,37 @@ using TMPro;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject endCanvas;
+    [SerializeField] private GameObject titleCanvas;
+    [SerializeField] private GameObject levelSelectCanvas;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text timeText;
-    // a function to load the course when the start button is pressed
-    public void StartGame()
+
+    public static UiManager instance;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
+    // functions to load the courses when the level button is pressed
+    public void StartLevel1()
     {
         SceneManager.LoadScene("Course1");
+    }
+    public void StartLevel2()
+    {
+        SceneManager.LoadScene("Course2");
+    }
+    // functions to navagate the start scene
+    public void StartPressed()
+    {
+        titleCanvas.SetActive(false);
+        levelSelectCanvas.SetActive(true);
+    }
+    public void BackPressed()
+    {
+        titleCanvas.SetActive(true);
+        levelSelectCanvas.SetActive(false);
     }
     // a function to close the game when the quit button is pressed
     public void CloseGame()
@@ -25,26 +47,21 @@ public class UiManager : MonoBehaviour
     // its main function in game is to give the player time to decide what to do when the wonky physics are wonky, it also lets you spawn a lot of bombs while time is frozen and that can be quite fun
     public void PauseUnpauseGame()
     {
-        if (gameManager == null) return;
-        if (gameManager.GetGameState() == GameStates.PLAY)
+        if (GameManager.instance.GetGameState() == GameStates.PLAY)
         {
-            gameManager.UpdateGameState(GameStates.PAUSE);
-            Time.timeScale = 0f;
+            GameManager.instance.UpdateGameState(GameStates.PAUSE);
             pauseCanvas.SetActive(true);
         }
-        else if (gameManager.GetGameState() == GameStates.PAUSE)
+        else if (GameManager.instance.GetGameState() == GameStates.PAUSE)
         {
-            gameManager.UpdateGameState(GameStates.PLAY);
-            Time.timeScale = 1f;
+            GameManager.instance.UpdateGameState(GameStates.PLAY);
             pauseCanvas.SetActive(false);
         }
     }
     // a function that is triggered by the finish line to bring up the score ui
     public void ShowScore(int Score, float Time)
     {
-        if (endCanvas == null) return;
-        if (scoreText == null) return;
-        if (timeText == null) return;
+        if (endCanvas == null) SceneManager.LoadScene("StartScene");
         scoreText.SetText(Score.ToString());
         timeText.SetText(Time.ToString());
         pauseCanvas.SetActive(false);

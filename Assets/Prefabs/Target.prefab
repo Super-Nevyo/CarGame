@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2546927432539417947}
   - component: {fileID: 4720561151139363521}
   - component: {fileID: 6745376344682222993}
+  - component: {fileID: 2469394760748758972}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -127,5 +128,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910ff43c6080f7340a79591cb41f68b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Target
-  gameManager: {fileID: 1115218978885105721, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
   value: 1
+--- !u!208 &2469394760748758972
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343675945673011907}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
