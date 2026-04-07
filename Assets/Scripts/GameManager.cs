@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         _currentGameState = UpdateTo;
         if (_currentGameState == GameStates.PLAY) Time.timeScale = 1f;
         if (_currentGameState == GameStates.PAUSE) Time.timeScale = 0f;
+        if (_currentGameState == GameStates.END) UiManager.instance.ShowScore(instance.GetScore(), instance.GetTime());
     }
     // used by the ui manager to tell if the game should be paused or unpaused
     public GameStates GetGameState()

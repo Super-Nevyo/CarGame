@@ -5,7 +5,7 @@ using System.Collections;
 
 public class CarMovement : MonoBehaviour
 {
-    [SerializeField] private Transform[] poweredTires;
+    [SerializeField] private Transform[] poweredRotator;
     [SerializeField] private Transform cannonTarget;
 
     [SerializeField] private float speed;
@@ -17,7 +17,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float cannonTargetMax;
     private Rigidbody rb;
 
-    private float _acceleration;
+    private float _driveDirection;
     private float _turning;
     private float _aiming;
     private Vector3 _tempAimPosition;
@@ -31,7 +31,7 @@ public class CarMovement : MonoBehaviour
     // pull the required values for moving based on what buttons were pressed
     public void OnMove(InputValue value)
     {
-        _acceleration = value.Get<Vector2>().y;
+        _driveDirection = value.Get<Vector2>().y;
         _turning = value.Get<Vector2>().x;
     }
     // same as on move but for tilting the cannon
@@ -52,11 +52,11 @@ public class CarMovement : MonoBehaviour
     
     void FixedUpdate()
     {
-        // turn the game object the tires are attached to so the tires will turn
-        foreach (var t in poweredTires)
-        {
-            t.Rotate(0, _acceleration * speed, 0);
-        }
+        // turn the game object the tires are attached to so the tires will turn, i have no idea how to make the tires spin faster the tires are spinning and i give up on trying
+         foreach(Transform t in poweredRotator)
+         {
+             t.Rotate(0, speed * _driveDirection, 0);
+         }
         // the car rotates by rotating the body of the car directly because i didnt have enough time to work out rotational suspension for the body when the tires have moved
         gameObject.transform.Rotate(0, _turning * turnSpeed, 0);
         // move the aim target based on where aiming happens like we learned in class
@@ -66,14 +66,14 @@ public class CarMovement : MonoBehaviour
     private IEnumerator Jump(float WaitTime)
     {
         Debug.Log("jump corutine started");
-        // tire goes down some amount pushing the body of the car up by the suspension script
-        foreach(var tire in poweredTires)
+        // powered rotator goes down some amount pushing the body of the car up by the suspension script
+        foreach(var tire in poweredRotator)
         {
             tire.position = tire.position - jumpHeight * gameObject.transform.up;
         }
         yield return new WaitForSeconds(WaitTime);
         // puts the tires back where they are supposed to be
-        foreach (var tire in poweredTires)
+        foreach (var tire in poweredRotator)
         {
             tire.position = tire.position + jumpHeight * gameObject.transform.up;
         }

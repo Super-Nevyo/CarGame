@@ -23,9 +23,7 @@ public class Shotgun : Gun
                 hit.rigidbody.AddForce(shotStrength * (hit.transform.position - transform.position).normalized);
 
             }
-
         }
-
     }
     private void OnDrawGizmos()
     {

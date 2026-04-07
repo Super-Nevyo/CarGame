@@ -11,10 +11,12 @@ public class Suspension : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 _moveDirection;
+    private bool _yesDamping = true;
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (attachTo[0].GetComponentInParent<Rigidbody>() == null) _yesDamping = false;
     }
 
     void FixedUpdate()
@@ -46,14 +48,23 @@ public class Suspension : MonoBehaviour
         rb.linearVelocity += new Vector3(Mathf.Pow(_moveDirection.x,3) * xSuspensionStrength, Mathf.Pow(_moveDirection.y,3) * ySuspensionStrength,
             Mathf.Pow(_moveDirection.z,3) * zSuspensionStrength);
         // reduces linear velocity by the amount damped
+
+        if(_yesDamping)
         foreach(Transform attach in attachTo)
         {
-            rb.linearVelocity -= CalculateDamping(attach.GetComponentInParent<Rigidbody>().linearVelocity, rb.linearVelocity);
+                rb.linearVelocity -= CalculateDamping(attach.GetComponentInParent<Rigidbody>().linearVelocity, rb.linearVelocity);
         }
     }
     // Calculates the linear damping based on the linear velocity of two Tigidbodys
     private Vector3 CalculateDamping(Vector3 LVFrom, Vector3 LVTo)
     {
         return (-LVFrom + LVTo) / dampingStrength;
+    }
+    // this exists to make new objects attach to a thing
+    public void SetTarget(Transform target)
+    {
+        attachTo[0] = target;
+        // need to make sure the new attachment point has a Rigidbody because otherwise there will be a bunch of errors when the Magic Blast swiches target
+        _yesDamping = attachTo[0].GetComponentInParent<Rigidbody>() != null;
     }
 }

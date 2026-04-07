@@ -11,7 +11,6 @@ public class FinishLine : MonoBehaviour
         {
             _triggered = true;
             GameManager.instance.UpdateGameState(GameStates.END);
-            UiManager.instance.ShowScore(GameManager.instance.GetScore(), GameManager.instance.GetTime());
         }
     }
 }

@@ -25,6 +25,10 @@ public class UiManager : MonoBehaviour
     {
         SceneManager.LoadScene("Course2");
     }
+    public void StartLevel3()
+    {
+        SceneManager.LoadScene("Course3");
+    }
     // functions to navagate the start scene
     public void StartPressed()
     {
