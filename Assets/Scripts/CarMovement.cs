@@ -15,7 +15,6 @@ public class CarMovement : MonoBehaviour
     [SerializeField] private float aimSpeed;
     [SerializeField] private float cannonTargetMin;
     [SerializeField] private float cannonTargetMax;
-    private Rigidbody rb;
 
     private float _driveDirection;
     private float _turning;
@@ -24,10 +23,6 @@ public class CarMovement : MonoBehaviour
 
     public event Action ShootEvent;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
     // pull the required values for moving based on what buttons were pressed
     public void OnMove(InputValue value)
     {
@@ -67,15 +62,15 @@ public class CarMovement : MonoBehaviour
     {
         Debug.Log("jump corutine started");
         // powered rotator goes down some amount pushing the body of the car up by the suspension script
-        foreach(var tire in poweredRotator)
+        foreach(var attachmentPoint in poweredRotator)
         {
-            tire.position = tire.position - jumpHeight * gameObject.transform.up;
+            attachmentPoint.position = attachmentPoint.position - jumpHeight * gameObject.transform.up;
         }
         yield return new WaitForSeconds(WaitTime);
         // puts the tires back where they are supposed to be
-        foreach (var tire in poweredRotator)
+        foreach (var attachmentPoint in poweredRotator)
         {
-            tire.position = tire.position + jumpHeight * gameObject.transform.up;
+            attachmentPoint.position = attachmentPoint.position + jumpHeight * gameObject.transform.up;
         }
     }
     // we made this in class

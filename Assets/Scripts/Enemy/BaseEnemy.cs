@@ -73,6 +73,7 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
     public void ChangeState(EnemyState NewState)
     {
         _currentState = NewState;
+        // this would be where i would change animation state when i add animations
         if(_currentState == EnemyState.DYING)
         {
             StopAllCoroutines();
@@ -85,6 +86,7 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
         currentTarget = new Vector3(Random.Range(MaxMoveAreaNode.position.x, MinMoveAreaNode.position.x), Random.Range(MaxMoveAreaNode.position.y, MinMoveAreaNode.position.y), Random.Range(MaxMoveAreaNode.position.z, MinMoveAreaNode.position.z));
         agent.SetDestination(currentTarget);
     }
+    //this would be helpful for a ranged enemy to get close but not too close and it is used by the rat wizard to be annoying but sometimes hitable
     public void ApprochToDistance(float Distance)
     {
         currentTarget = Distance * (-playerTransform.position + transform.position).normalized + playerTransform.position;

@@ -41,7 +41,7 @@ public class RatWizard : BaseEnemy
         if(!_waiting)
         StartCoroutine(WaitAndChoose(WaitTime));
     }
-    // wander around the arena and spawn rats
+    // wander around the arena and spawn rats, cycles through  moving and spawning until the correct number is spawned
     public override void WanderAction()
     {
         if (_spawnedNum >= spawnedPerCycle) ChangeState(EnemyState.IDLE);
@@ -51,12 +51,14 @@ public class RatWizard : BaseEnemy
             ChooseAPointInBoundsAndMove();
         }
     }
+    // the rat wizard comes close to the player but not close enough to be hit without pushing a bomb into them, if i was giving things animations, they would be doing a little dance
     public override void ChaseAction()
     {
         Debug.Log("chase");
         StartCoroutine(TauntFor(tauntDuration));
         ApprochToDistance(approchTo);
     }
+    // spawns 1 to 3 magic blasts, if the roll for wait time is short in the idle state, the rat wizard might start wander action while still summoning or even spawning more balls
     public override void ShootAction()
     {
         Debug.Log("shooting");
@@ -93,6 +95,7 @@ public class RatWizard : BaseEnemy
             _audioSource.Play();
         }
     }
+    // spawn a rat and set its bounds to the same as the rat wizard
     private void SpawnMinion()
     {
         _spawnedMinionTemp = Instantiate(minionToBeSpawned, transform.position, Quaternion.identity);
@@ -124,6 +127,7 @@ public class RatWizard : BaseEnemy
         }
         _waiting = false;
     }
+    // make the rat wizard take no damage for some time after being hit and shows the shield while it happens, if they get hit while invincible, they stay invincible for longer
     private IEnumerator Invincibility(float ITime)
     {
         _isInvincible = true;
@@ -132,23 +136,26 @@ public class RatWizard : BaseEnemy
         _isInvincible = false;
         forceField.SetActive(false);
     }
+    // starts the shooting particles and spawns 1 to 3 balls on top of each other
     private IEnumerator ShootAfter(float shootTime)
     {
         magicOrbSpawnParticles.Play();
         yield return new WaitForSeconds(shootTime);
-        _numSpawnBlasts = Random.Range(2, 5);
-        for (int i = 1; i < _numSpawnBlasts; i++)
+        _numSpawnBlasts = Random.Range(1, 4);
+        for (int i = 0; i < _numSpawnBlasts; i++)
         {
             _spawnedBlastTemp = Instantiate(projectile, transform.position + 2 * i * Vector3.up, Quaternion.identity);
             _spawnedBlastTemp.GetComponent<Suspension>().SetTarget(playerTransform);
             _spawnedBlastTemp.GetComponent<MagicBlast>().Summoner = transform;
         }
     }
+    // this is for the chase state to go back into idle after some time
     private IEnumerator TauntFor(float time)
     {
         yield return new WaitForSeconds(time); 
         ChangeState(EnemyState.IDLE);
     }
+    // triggered when the rat wizard dies to give it some time to do its dying animation before telling the game manager to end the game and then destroying the rat wizard
     private IEnumerator DieAfter(float time)
     {
         yield return new WaitForSeconds(time);

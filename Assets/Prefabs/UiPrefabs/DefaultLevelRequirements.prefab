@@ -124,6 +124,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 8992950797938235258}
     m_Modifications:
     - target: {fileID: 3913559509173385860, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
+      propertyPath: endTime
+      value: 
+      objectReference: {fileID: 6658732601389291481}
+    - target: {fileID: 3913559509173385860, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
+      propertyPath: endScore
+      value: 
+      objectReference: {fileID: 1349008485289523620}
+    - target: {fileID: 3913559509173385860, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
       propertyPath: timeText
       value: 
       objectReference: {fileID: 6658732601389291481}
@@ -135,6 +143,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1349008485289523620}
+    - target: {fileID: 3913559509173385860, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
+      propertyPath: activeScore
+      value: 
+      objectReference: {fileID: 43429943846109000}
     - target: {fileID: 3913559509173385860, guid: 70e1b29f36604e8409b6d4155e4091ad, type: 3}
       propertyPath: pauseCanvas
       value: 
@@ -573,6 +585,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fea394a6896d06844aee16c0c536e8ef, type: 3}
+--- !u!114 &43429943846109000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8162042040029098285, guid: fea394a6896d06844aee16c0c536e8ef, type: 3}
+  m_PrefabInstance: {fileID: 8205328381457387109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &8507403022605352022 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 562795239594209843, guid: fea394a6896d06844aee16c0c536e8ef, type: 3}

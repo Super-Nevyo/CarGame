@@ -4,7 +4,7 @@ public class FinishLine : MonoBehaviour
 {
     // during playtesting it was revealed the finish line could be triggered twice, not anymore
     private bool _triggered = false;
-    // when the player goes into the winning zone, show the end game ui
+    // when the player goes into the winning zone, set the gamestate to end through the game manager
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !_triggered)

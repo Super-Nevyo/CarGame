@@ -8,8 +8,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject endCanvas;
     [SerializeField] private GameObject titleCanvas;
     [SerializeField] private GameObject levelSelectCanvas;
-    [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text timeText;
+    [SerializeField] private TMP_Text endScore;
+    [SerializeField] private TMP_Text endTime;
+    [SerializeField] private TMP_Text activeScore;
 
     public static UiManager instance;
     private void Awake()
@@ -66,10 +67,15 @@ public class UiManager : MonoBehaviour
     public void ShowScore(int Score, float Time)
     {
         if (endCanvas == null) SceneManager.LoadScene("StartScene");
-        scoreText.SetText(Score.ToString());
-        timeText.SetText(Time.ToString());
+        endScore.SetText(Score.ToString());
+        endTime.SetText(Time.ToString());
         pauseCanvas.SetActive(false);
         endCanvas.SetActive(true);
+    }
+    // this is so the score on screen can be updated once when the the game manager updates its score
+    public void UpdateScore(int Score)
+    {
+        activeScore.SetText(Score.ToString());
     }
     // a function to return to the start menu from the pause menu or score menu
     public void ReturnToStart()

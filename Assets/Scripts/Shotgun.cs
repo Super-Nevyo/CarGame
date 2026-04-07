@@ -9,7 +9,7 @@ public class Shotgun : Gun
     [SerializeField] private float shotStartDistance;
     private RaycastHit[] _raycastHits;
     private IBombable bombed;
-    
+    // this is almost the same as how the bomb script works but with a box cast instead of a circle cast
     public override void Shoot()
     {
         playShotgunBlast.Play();
@@ -24,9 +24,5 @@ public class Shotgun : Gun
 
             }
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position + shotStartDistance * transform.forward, 2 * boxCastHalf);
     }
 }

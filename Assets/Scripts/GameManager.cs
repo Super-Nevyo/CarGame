@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private GameStates _currentGameState;
     private float _startTime;
     public static GameManager instance;
+    // making sure the game manager singleton is properly set, reset the score, set the gamestate to play and take note of the start time
     void Awake()
     {
         if (instance == null) instance = this;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int ScoreChanged)
     {
         _score += ScoreChanged;
-        Debug.Log(_score);
+        UiManager.instance.UpdateScore(_score);
     }
     // a function to let other scripts update the game state, used by the ui manager for pausing game and the finish line for winning
     public void UpdateGameState(GameStates UpdateTo)

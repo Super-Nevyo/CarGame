@@ -2023,6 +2023,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultLevelRequirements
       objectReference: {fileID: 0}
+    - target: {fileID: 8597452593771541479, guid: 9e7ab4ef8bc55ca4ebae3c5025c985d5, type: 3}
+      propertyPath: m_text
+      value: /100
+      objectReference: {fileID: 0}
     - target: {fileID: 8992950797938235258, guid: 9e7ab4ef8bc55ca4ebae3c5025c985d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
