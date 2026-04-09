@@ -9,7 +9,7 @@ public class Rat : BaseEnemy
     private Bomb _bomb;
     private bool _waiting = false;
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         // take a note of the bomb attached to the rat
@@ -19,7 +19,7 @@ public class Rat : BaseEnemy
     /// <summary>
     /// these are called in the base enemy fixed update to be run when in different states
     /// </summary>
-    public override void IdleAction()
+    protected override void IdleAction()
     {
         if (!_waiting) StartCoroutine(WaitAndGo(WaitTime));
         // stop all corutines is run to stop the WaitAndGo from triggering if the player runs away
@@ -31,7 +31,7 @@ public class Rat : BaseEnemy
             _bomb.BlowUpAfter(bombTime);
         }
     }
-    public override void WanderAction()
+    protected override void WanderAction()
     {
         if (agent.remainingDistance <= 0.2) ChangeState(EnemyState.IDLE);
         if (IsTargetSpotable(playerTransform))
@@ -41,7 +41,7 @@ public class Rat : BaseEnemy
             _bomb.BlowUpAfter(bombTime);
         }
     }
-    public override void ChaseAction()
+    protected override void ChaseAction()
     {
         // setting destination every fixed update is bad but it should only be ran every now and then
         agent.SetDestination(playerTransform.position);
@@ -68,11 +68,5 @@ public class Rat : BaseEnemy
         ChooseAPointInBoundsAndMove();
         _waiting = false;
     }
-    // this is pretty much what we learned in class but in 1 method instead of 2 and slightly different formatting
-    private bool IsTargetSpotable(Transform target)
-    {//Debug.Log(Vector3.Magnitude(target.position - transform.position));
-        if (Vector3.Magnitude(target.position - transform.position) > sightDistance) return false;
-        if (Mathf.Abs(Vector3.Angle(transform.forward, target.position - transform.position)) > sightAngle) { Debug.Log(Vector3.Angle(transform.forward, target.position - transform.position)); return false; }
-        return true;
-    }
+    
 }

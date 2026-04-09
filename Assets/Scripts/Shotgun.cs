@@ -21,8 +21,12 @@ public class Shotgun : Gun
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(shotStrength * (hit.transform.position - transform.position).normalized);
-
             }
         }
+    }
+
+    public override void RotateTo()
+    {
+        
     }
 }

@@ -22,13 +22,8 @@ public abstract class Gun : MonoBehaviour
         RotateTo();
     }
     // all guns need to shoot but how they do that is up to them
-    public virtual void Shoot()
-    {
-
-    }
+    public abstract void Shoot();
+    
     // guns should have the option to rotate
-    public virtual void RotateTo()
-    {
-        
-    }
+    public abstract void RotateTo();
 }

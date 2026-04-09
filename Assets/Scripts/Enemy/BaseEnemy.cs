@@ -5,17 +5,17 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
 {
     protected NavMeshAgent agent;
     protected Transform playerTransform;
-    [SerializeField] public float sightDistance;
-    [SerializeField] public float sightAngle;
+    [SerializeField] protected float sightDistance;
+    [SerializeField] protected float sightAngle;
     [SerializeField] public Transform MaxMoveAreaNode;
     [SerializeField] public Transform MinMoveAreaNode;
-    [SerializeField] public float WaitTime;
+    [SerializeField] protected float WaitTime;
 
 
     private EnemyState _currentState;
     private Vector3 currentTarget;
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -46,23 +46,23 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
         }
     }
     // functions to be played in the fixed update to do actions while in different states
-    public virtual void IdleAction()
+    protected virtual void IdleAction()
     {
 
     }
-    public virtual void WanderAction()
+    protected virtual void WanderAction()
     {
 
     }
-    public virtual void ChaseAction()
+    protected virtual void ChaseAction()
     {
 
     }
-    public virtual void ShootAction()
+    protected virtual void ShootAction()
     {
 
     }
-    public virtual void DieAction()
+    protected virtual void DieAction()
     {
 
     }
@@ -70,7 +70,7 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
     {
 
     }
-    public void ChangeState(EnemyState NewState)
+    protected void ChangeState(EnemyState NewState)
     {
         _currentState = NewState;
         // this would be where i would change animation state when i add animations
@@ -81,15 +81,22 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
         }
     }
     // this is almost the same as we made in class, instead of a number of points the enemy might walk to, the enemy will go to a random place within a box
-    public void ChooseAPointInBoundsAndMove()
+    protected void ChooseAPointInBoundsAndMove()
     {
         currentTarget = new Vector3(Random.Range(MaxMoveAreaNode.position.x, MinMoveAreaNode.position.x), Random.Range(MaxMoveAreaNode.position.y, MinMoveAreaNode.position.y), Random.Range(MaxMoveAreaNode.position.z, MinMoveAreaNode.position.z));
         agent.SetDestination(currentTarget);
     }
     //this would be helpful for a ranged enemy to get close but not too close and it is used by the rat wizard to be annoying but sometimes hitable
-    public void ApprochToDistance(float Distance)
+    protected void ApprochToDistance(float Distance)
     {
         currentTarget = Distance * (-playerTransform.position + transform.position).normalized + playerTransform.position;
         agent.SetDestination(currentTarget);
+    }
+    // this is pretty much what we learned in class but in 1 method instead of 2 and slightly different formatting
+    protected bool IsTargetSpotable(Transform target)
+    {
+        if (Vector3.Magnitude(target.position - transform.position) > sightDistance) return false;
+        if (Mathf.Abs(Vector3.Angle(transform.forward, target.position - transform.position)) > sightAngle) { return false; }
+        return true;
     }
 }

@@ -57,10 +57,14 @@ public class CarMovement : MonoBehaviour
         // move the aim target based on where aiming happens like we learned in class
         AimUpdate();
     }
-
+    
+    /// <summary>
+    ///  this function works by moving the point the tires are trying to get to down some amount
+    ///  the car thinks the tires are higher than they should be so it goes up
+    ///  the wheels think the car is lower than it should be so the wheels go down
+    /// <returns>
     private IEnumerator Jump(float WaitTime)
     {
-        Debug.Log("jump corutine started");
         // powered rotator goes down some amount pushing the body of the car up by the suspension script
         foreach(var attachmentPoint in poweredRotator)
         {

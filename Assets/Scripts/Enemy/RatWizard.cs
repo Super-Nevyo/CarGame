@@ -28,7 +28,7 @@ public class RatWizard : BaseEnemy
     private AudioSource _audioSource;
     private int _numSpawnBlasts;
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         _audioSource = GetComponent<AudioSource>();
@@ -36,13 +36,13 @@ public class RatWizard : BaseEnemy
         forceField.SetActive(false);
     }
     // wait and then swap to a different action
-    public override void IdleAction()
+    protected override void IdleAction()
     {
         if(!_waiting)
         StartCoroutine(WaitAndChoose(WaitTime));
     }
     // wander around the arena and spawn rats, cycles through  moving and spawning until the correct number is spawned
-    public override void WanderAction()
+    protected override void WanderAction()
     {
         if (_spawnedNum >= spawnedPerCycle) ChangeState(EnemyState.IDLE);
         if (agent.remainingDistance <= 1.2)
@@ -52,20 +52,18 @@ public class RatWizard : BaseEnemy
         }
     }
     // the rat wizard comes close to the player but not close enough to be hit without pushing a bomb into them, if i was giving things animations, they would be doing a little dance
-    public override void ChaseAction()
+    protected override void ChaseAction()
     {
-        Debug.Log("chase");
         StartCoroutine(TauntFor(tauntDuration));
         ApprochToDistance(approchTo);
     }
     // spawns 1 to 3 magic blasts, if the roll for wait time is short in the idle state, the rat wizard might start wander action while still summoning or even spawning more balls
-    public override void ShootAction()
+    protected override void ShootAction()
     {
-        Debug.Log("shooting");
         StartCoroutine(ShootAfter(2));
         ChangeState(EnemyState.IDLE);
     }
-    public override void DieAction()
+    protected override void DieAction()
     {
         // spin while dying
         transform.Rotate(Vector3.up * 3);
@@ -87,6 +85,7 @@ public class RatWizard : BaseEnemy
                 _audioSource.clip = deathSound;
                 deathParticles.Play();
                 StartCoroutine(DieAfter(3));
+                _isInvincible = true;
             }
             else
             {

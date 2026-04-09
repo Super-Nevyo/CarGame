@@ -25,15 +25,12 @@ public class Bomb : MonoBehaviour
             ~0);
         foreach(RaycastHit hit in _raycastHits)
         {
-            Debug.Log(hit.collider.name);
             bombed = hit.collider.GetComponent<IBombable>();
             bombed?.OnBombed();
             if (hit.rigidbody != null) 
             {
                 hit.rigidbody.AddForce(bombStrength * (hit.transform.position - transform.position).normalized);
-                
             }
-            
         }
         Destroy(gameObject, 0.2f);
     }
