@@ -1962,6 +1962,14 @@ PrefabInstance:
       propertyPath: MinMoveAreaNode
       value: 
       objectReference: {fileID: 704152964}
+    - target: {fileID: 2739920049455222293, guid: e923749bcba7eaf4fa32568b590b18e0, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1650662073}
+    - target: {fileID: 2739920049455222293, guid: e923749bcba7eaf4fa32568b590b18e0, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 704152964}
     - target: {fileID: 4688597827038588878, guid: e923749bcba7eaf4fa32568b590b18e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

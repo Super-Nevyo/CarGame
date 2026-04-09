@@ -7,8 +7,8 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
     protected Transform playerTransform;
     [SerializeField] protected float sightDistance;
     [SerializeField] protected float sightAngle;
-    [SerializeField] public Transform MaxMoveAreaNode;
-    [SerializeField] public Transform MinMoveAreaNode;
+    [SerializeField] protected Transform maxMoveAreaNode;
+    [SerializeField] protected Transform minMoveAreaNode;
     [SerializeField] protected float WaitTime;
 
 
@@ -83,7 +83,7 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
     // this is almost the same as we made in class, instead of a number of points the enemy might walk to, the enemy will go to a random place within a box
     protected void ChooseAPointInBoundsAndMove()
     {
-        currentTarget = new Vector3(Random.Range(MaxMoveAreaNode.position.x, MinMoveAreaNode.position.x), Random.Range(MaxMoveAreaNode.position.y, MinMoveAreaNode.position.y), Random.Range(MaxMoveAreaNode.position.z, MinMoveAreaNode.position.z));
+        currentTarget = new Vector3(Random.Range(maxMoveAreaNode.position.x, minMoveAreaNode.position.x), Random.Range(maxMoveAreaNode.position.y, minMoveAreaNode.position.y), Random.Range(maxMoveAreaNode.position.z, minMoveAreaNode.position.z));
         agent.SetDestination(currentTarget);
     }
     //this would be helpful for a ranged enemy to get close but not too close and it is used by the rat wizard to be annoying but sometimes hitable
@@ -98,5 +98,10 @@ public abstract class BaseEnemy : MonoBehaviour, IBombable
         if (Vector3.Magnitude(target.position - transform.position) > sightDistance) return false;
         if (Mathf.Abs(Vector3.Angle(transform.forward, target.position - transform.position)) > sightAngle) { return false; }
         return true;
+    }
+    public void SetMoveBounds(Transform max,  Transform min)
+    {
+        maxMoveAreaNode = max;
+        minMoveAreaNode = min;
     }
 }

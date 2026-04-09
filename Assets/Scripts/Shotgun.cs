@@ -10,7 +10,7 @@ public class Shotgun : Gun
     private RaycastHit[] _raycastHits;
     private IBombable bombed;
     // this is almost the same as how the bomb script works but with a box cast instead of a circle cast
-    public override void Shoot()
+    protected override void Shoot()
     {
         playShotgunBlast.Play();
         _raycastHits = Physics.BoxCastAll(transform.position + shotStartDistance * transform.forward, boxCastHalf, transform.forward, transform.rotation, 0, ~0);
@@ -25,7 +25,7 @@ public class Shotgun : Gun
         }
     }
 
-    public override void RotateTo()
+    protected override void RotateTo()
     {
         
     }

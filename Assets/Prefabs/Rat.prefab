@@ -156,13 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20637e28f1688e14880c13863b566715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rat
-  agent: {fileID: 786215507431346089}
-  playerTransform: {fileID: 0}
   sightDistance: 15
   sightAngle: 240
-  MaxSpawnAreaNode: {fileID: 0}
-  MinSpawnAreaNode: {fileID: 0}
-  waitTime: 2
+  maxMoveAreaNode: {fileID: 0}
+  minMoveAreaNode: {fileID: 0}
+  WaitTime: 2
   noticeSound: {fileID: 8300000, guid: cdda55e9fe0443a4f97d7ef4ad8e8c5f, type: 3}
   bombTime: 4
 --- !u!114 &3573499164847595768

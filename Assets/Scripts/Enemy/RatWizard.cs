@@ -98,8 +98,7 @@ public class RatWizard : BaseEnemy
     private void SpawnMinion()
     {
         _spawnedMinionTemp = Instantiate(minionToBeSpawned, transform.position, Quaternion.identity);
-        _spawnedMinionTemp.MaxMoveAreaNode = MaxMoveAreaNode;
-        _spawnedMinionTemp.MinMoveAreaNode = MinMoveAreaNode;
+        _spawnedMinionTemp.SetMoveBounds(maxMoveAreaNode, minMoveAreaNode);
         _spawnedNum++;
     }
     // IEnumerator to wait for some time and then choose an action
@@ -144,8 +143,7 @@ public class RatWizard : BaseEnemy
         for (int i = 0; i < _numSpawnBlasts; i++)
         {
             _spawnedBlastTemp = Instantiate(projectile, transform.position + 2 * i * Vector3.up, Quaternion.identity);
-            _spawnedBlastTemp.GetComponent<Suspension>().SetTarget(playerTransform);
-            _spawnedBlastTemp.GetComponent<MagicBlast>().Summoner = transform;
+            _spawnedBlastTemp.GetComponent<MagicBlast>().RequiredSpawnInfo(transform, playerTransform);
         }
     }
     // this is for the chase state to go back into idle after some time

@@ -7,7 +7,7 @@ public class Cannon : Gun
     private GameObject _bomb;
 
     // this is pretty much the same as what we learned in class with the arrow but with a different projectile
-    public override void Shoot()
+    protected override void Shoot()
     {
         _bomb = Instantiate(projectile, transform.position, transform.rotation);
         // shootspeed becomes stronger the more the gun is pointed up because it makes for more interesing trickshots
@@ -15,7 +15,7 @@ public class Cannon : Gun
         _bomb.GetComponent<Bomb>().BlowUpAfter(2f);
     }
     // we learned how to do this in class, it is a pretty simple rotate script and functions well
-    public override void RotateTo()
+    protected override void RotateTo()
     {
         transform.rotation = Quaternion.LookRotation(Target.position - transform.position);
     }

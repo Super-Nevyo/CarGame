@@ -1115,6 +1115,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1830486124}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 2007598102}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 1830486124}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -1378,6 +1386,14 @@ PrefabInstance:
       objectReference: {fileID: 1805238091}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1397620292}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1805238091}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1397620292}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -1986,6 +2002,14 @@ PrefabInstance:
       objectReference: {fileID: 149926616}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 643265228}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 149926616}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 643265228}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -3087,6 +3111,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 113592691}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1677793347}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 113592691}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -3166,6 +3198,14 @@ PrefabInstance:
       objectReference: {fileID: 2007598102}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1830486124}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 2007598102}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1830486124}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -3258,6 +3298,14 @@ PrefabInstance:
       objectReference: {fileID: 1075817300}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1473843873}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1075817300}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1473843873}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -3657,6 +3705,14 @@ PrefabInstance:
       objectReference: {fileID: 1075817300}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1473843873}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1075817300}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1473843873}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -4135,6 +4191,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 643265228}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 149926616}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 643265228}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -4590,6 +4654,14 @@ PrefabInstance:
       objectReference: {fileID: 1805238091}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1397620292}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1805238091}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1397620292}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -5789,6 +5861,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1473843873}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1075817300}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 1473843873}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -5863,6 +5943,14 @@ PrefabInstance:
       objectReference: {fileID: 1805238091}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 1397620292}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1805238091}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 1397620292}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
@@ -6759,6 +6847,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1473843873}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1075817300}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 1473843873}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -7379,6 +7475,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1397620292}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 1805238091}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 1397620292}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -7570,6 +7674,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1830486124}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 2007598102}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
+      value: 
+      objectReference: {fileID: 1830486124}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1035378941}
@@ -7742,6 +7854,14 @@ PrefabInstance:
       objectReference: {fileID: 149926616}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
       propertyPath: MinMoveAreaNode
+      value: 
+      objectReference: {fileID: 643265228}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: maxMoveAreaNode
+      value: 
+      objectReference: {fileID: 149926616}
+    - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
+      propertyPath: minMoveAreaNode
       value: 
       objectReference: {fileID: 643265228}
     - target: {fileID: 6886331538820185650, guid: c69c00eb6b7f8ae4dae1f5cc8d36fdf6, type: 3}
